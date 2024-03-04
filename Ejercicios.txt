@@ -1,0 +1,108 @@
+0) Muestra las primeras 5 lineas de `ip.txt`
+[PISTA] Utiliza el comando head
+Solution: head -n5 ip.txt
+
+1) Muestra todo el fichero `blocks.txt` menos las 5 primeras lineas
+[PISTA] Utiliza el comando tail
+Solution: tail -n +6 blocks.txt
+
+2) Muestra las primeras tres lineas de `ip.txt` y `fruits.txt` a la vez
+[PISTA] Para que sirve la opción -q?
+Solution: head -q -n3 ip.txt fruits.txt
+
+3) Cuenta las palabras del fichero `ip.txt`
+[PISTA] Utiliza el comando wc
+Solution: wc -w <ip.txt
+
+4) Calcula la linea más larga del fichero `sample.txt`
+[PISTA] Utiliza el comando wc, investiga sus opciones
+Solution: wc -L <sample.txt
+
+5) Ordena los núemros de  `nums_1.txt` 
+[PISTA] Utiliza el comando sort y la opción -n
+Solution: sort -n nums_1.txt
+
+6) Ordena los números de `nums_2.txt` 
+   teniendo en cuenta que son números reales
+[PISTA] Utiliza el comando sort y la opción -g
+Solution: sort -g nums_2.txt
+
+7) Ordena el fichero `file_size.txt` de mayor a menor tamaño de fichero. 
+   Cada linea representa el espacio que ocupa un fichero y su nombre
+[PISTA] Utiliza el comando sort y la opción -h
+Solution: sort -hr file_size.txt
+
+8) Ordena el contenido de `timings.txt` de mayor a menor tiempo
+   El contenido del fichero son mediciones de tiempo expresadas en minutos y segundos
+[PISTA] Utiliza el comando sort y la opción -V 
+Solution: sort -Vr timings.txt
+
+9) Ordena `duplicates.txt` por la cuarta columna (de mayor a menor).
+[PISTA] Utiliza el comando sort
+Solution: sort -t, -k4nr duplicates.txt
+
+10) Ordena las palabras de  `purchases.txt` y muestra las lineas sin palabras repetidas
+[PISTA] Utiliza los comandos: sort, uniq
+Solution: sort purchases.txt | uniq 
+
+
+11) Ordena las palabras de  `purchases.txt` y muestra únicamente las palabras que se repiten
+[PISTA] Utiliza la opción -d
+Solution: sort purchases.txt | uniq -d
+
+
+12) Cuenta el número de lineas repetidas en `colors.txt`
+    Muestra el número de veces que aparece cada palabra junto a la palabra 
+    Muestra el resultado ordenado de menos a más repeticiones
+[PISTA] Utiliza los comandos: sort, uniq, sort
+Solution: sort colors.txt | uniq -c | sort -n
+
+13) Los ficheros 'shopping_feb.txt' y 'shopping_jan.txt' están formados por dos columnas separadas por varios espacios. 
+    La primera columna es el nombre de un producto y la segunda el nombre de ventas de ese producto
+    Muestra una única "tabla" con los productos que se vendieron tanto en febrero como en enero
+    Deben mostrarse tres columnas: nombre, ventas de enero y ventas de febrero
+[PISTA] Utiliza el comando join
+Solution: join shopping_jan.txt shopping_feb.txt
+
+
+14) Muestra ahora el nombre de los productos que se vendieron tanto en enero como en febrero
+    pero ahora únicamente muestra el número de ventas de febrero
+[PISTA] Puedes usar el comando join con la opción -o o añadir un cut 
+Solution: join -o 1.1,2.2 shopping_jan.txt shopping_feb.txt
+
+
+15) Muestra todas las columnas de `varying_fields.csv` menos la segunda
+[PISTA] Utiliza el comando cut
+Solution: cut -d, --complement -f2 varying_fields.csv
+
+16) Borra los tres primeros carácteres (el numero) de cada linea de `fruits.txt`
+[PISTA] Utiliza el comando cut
+Solution: cut -c4- fruits.txt
+
+17) Extrae la primera y tercera columna de `varying_fields.csv` y alinea el resultado usando tabulaciones
+[PISTA] Utiliza los comandos: cut, tr. El carácter '\t' representa una tabulación
+Solution: cut -d, -f1,3  varying_fields.csv | tr ',' '\t'
+
+18) Junta las columnas de los ficheros `c1.txt` y `c2.txt` para que se muestren separadas por una coma
+[PISTA] Utiliza el comando paste
+Solution: paste -d, c1.txt c2.txt
+
+19) Extrae la segunda columna del fichero `varying_fields.csv` pero muestrala como una sola fila de palabras separadas por espacios
+[PISTA] Utiliza los comandos: cut y paste. El carácter especial '\n' representa un salto de linea
+Solution: cut -d, -f2 varying_fields.csv | tr '\n' ' '
+
+20) El fichero 'shopping_feb.txt' está formada por dos columnas separadas por varios espacios. 
+    La primera columna es el nombre de un producto y la segunda el nombre de ventas de ese producto
+    Muestra el contenido del fichero cambiando el formato de la linea.
+    Ejemplo: 
+    apple    10 --> Producto: apple, Ventas: 10
+    banana   20 --> Producto: banana, Ventas: 10 
+
+21) Muestra todas las lineas del fichero `ip.txt` excepto las lineas 4, 5, 6 y 7
+[PISTA] Utiliza el comando head. Puedes usar ; para expresar varios comandos en una sola linea
+Solution: head -n3 ip.txt ; tail -n +8 ip.txt
+
+22) En el fichero `multi_empty_lines.txt` hay varios saltos de linea consecutivos. 
+    Muestra el contenido del fichero eliminando las lineas en blanco sobrantes
+    Ees decir, si hay 3 lineas en blanco seguidas, solo habrá una linea en blanco en el resultado
+Solution: uniq multi_empty_lines.txt
