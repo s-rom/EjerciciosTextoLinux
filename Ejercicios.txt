@@ -1,5 +1,6 @@
 0) Muestra las primeras 5 lineas de `ip.txt`
 [PISTA] Utiliza el comando head
+Solucion: head -n5 ip.txt
 
 1) Muestra todo el fichero `blocks.txt` menos las 5 primeras lineas
 [PISTA] Utiliza el comando tail
@@ -30,6 +31,8 @@
 
 9) Ordena `duplicates.txt` por la cuarta columna (de mayor a menor).
 [PISTA] Utiliza el comando sort
+Solucion: sort -t, -k4nr  duplicates.txt
+
 
 10) Ordena las palabras de  `purchases.txt` y muestra las lineas sin palabras repetidas
 [PISTA] Utiliza los comandos: sort, uniq
@@ -50,6 +53,7 @@
     Deben mostrarse tres columnas: nombre, ventas de enero y ventas de febrero
 [PISTA] Utiliza el comando join
 
+Solucion: join -t' ' -1 1 -2 1 shopping_jan.txt shopping_feb.txt
 
 14) Muestra ahora el nombre de los productos que se vendieron tanto en enero como en febrero
     pero ahora únicamente muestra el número de ventas de febrero
@@ -58,18 +62,23 @@
 
 15) Muestra todas las columnas de `varying_fields.csv` menos la segunda
 [PISTA] Utiliza el comando cut
+Solucion: cut -d' ' -f1,3 varying_fields.csv
 
 16) Borra los tres primeros carácteres (el numero) de cada linea de `fruits.txt`
 [PISTA] Utiliza el comando cut
 
 17) Extrae la primera y tercera columna de `varying_fields.csv` y alinea el resultado usando tabulaciones
 [PISTA] Utiliza los comandos: cut, tr. El carácter '\t' representa una tabulación
+Solucion: cut -d' ' -f1,3 varying_fields.csv | tr ' ' '\t'
 
 18) Junta las columnas de los ficheros `c1.txt` y `c2.txt` para que se muestren separadas por una coma
 [PISTA] Utiliza el comando paste
+Solucion: cat c1.txt
 
 19) Extrae la segunda columna del fichero `varying_fields.csv` pero muestrala como una sola fila de palabras separadas por espacios
 [PISTA] Utiliza los comandos: cut y paste. El carácter especial '\n' representa un salto de linea
+
+Solucion: cut -d' ' -f2 varying_fields.csv | tr '\n' ' '
 
 20) El fichero 'shopping_feb.txt' está formada por dos columnas separadas por varios espacios. 
     La primera columna es el nombre de un producto y la segunda el nombre de ventas de ese producto
@@ -81,6 +90,10 @@
 21) Muestra todas las lineas del fichero `ip.txt` excepto las lineas 4, 5, 6 y 7
 [PISTA] Utiliza el comando head. Puedes usar ; para expresar varios comandos en una sola linea
 
+
 22) En el fichero `multi_empty_lines.txt` hay varios saltos de linea consecutivos. 
     Muestra el contenido del fichero eliminando las lineas en blanco sobrantes
     Ees decir, si hay 3 lineas en blanco seguidas, solo habrá una linea en blanco en el resultado
+
+
+Solucion: echo Hola

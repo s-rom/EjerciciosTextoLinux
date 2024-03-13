@@ -73,7 +73,7 @@ Solution: join -o 1.1,2.2 shopping_jan.txt shopping_feb.txt
 
 15) Muestra todas las columnas de `varying_fields.csv` menos la segunda
 [PISTA] Utiliza el comando cut
-Solution: cut -d, --complement -f2 varying_fields.csv
+Solution: cut -d ' ' -f1,3 varying_fields.csv
 
 16) Borra los tres primeros carácteres (el numero) de cada linea de `fruits.txt`
 [PISTA] Utiliza el comando cut
@@ -81,7 +81,7 @@ Solution: cut -c4- fruits.txt
 
 17) Extrae la primera y tercera columna de `varying_fields.csv` y alinea el resultado usando tabulaciones
 [PISTA] Utiliza los comandos: cut, tr. El carácter '\t' representa una tabulación
-Solution: cut -d, -f1,3  varying_fields.csv | tr ',' '\t'
+Solution: cut -d' ' -f1,3  varying_fields.csv | tr ' ' '\t'
 
 18) Junta las columnas de los ficheros `c1.txt` y `c2.txt` para que se muestren separadas por una coma
 [PISTA] Utiliza el comando paste
@@ -89,7 +89,7 @@ Solution: paste -d, c1.txt c2.txt
 
 19) Extrae la segunda columna del fichero `varying_fields.csv` pero muestrala como una sola fila de palabras separadas por espacios
 [PISTA] Utiliza los comandos: cut y paste. El carácter especial '\n' representa un salto de linea
-Solution: cut -d, -f2 varying_fields.csv | tr '\n' ' '
+Solution: cut -d' ' -f2 varying_fields.csv | tr '\n' ' '
 
 20) El fichero 'shopping_feb.txt' está formada por dos columnas separadas por varios espacios. 
     La primera columna es el nombre de un producto y la segunda el nombre de ventas de ese producto
@@ -97,6 +97,9 @@ Solution: cut -d, -f2 varying_fields.csv | tr '\n' ' '
     Ejemplo: 
     apple    10 --> Producto: apple, Ventas: 10
     banana   20 --> Producto: banana, Ventas: 10 
+
+Solution: sed -E 's/([a-z]+)[ ]+([0-9]+)/Producto: \1, Ventas: \2/' shopping_feb.txt
+
 
 21) Muestra todas las lineas del fichero `ip.txt` excepto las lineas 4, 5, 6 y 7
 [PISTA] Utiliza el comando head. Puedes usar ; para expresar varios comandos en una sola linea

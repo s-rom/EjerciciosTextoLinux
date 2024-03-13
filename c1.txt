@@ -1,7 +1,5 @@
-Blue
-Brown
-Orange
+White
 Purple
 Red
-Teal
-White
+Blue
+Yellow

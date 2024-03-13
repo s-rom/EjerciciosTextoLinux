@@ -1,7 +1,5 @@
-Black
-Blue
-Green
-Orange
-Pink
-Red
-White
+44
+55
+38
+29
+29
